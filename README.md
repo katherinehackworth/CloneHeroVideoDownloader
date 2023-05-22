@@ -1,4 +1,8 @@
 <img src="https://github.com/jshackles/CloneHeroVideoDownloader/raw/master/assets/icon.png" width="32" height="32"></img> Clone Hero Video Downloader
+
+Forked and updated as original stopped working. Replaced the googlesearch Python library with youtube-search-python. 
+It may still crash - rerun again and it should pick up where it left off.
+
 ===========
 An application that allows you to download the top YouTube music video for songs in your Clone Hero library.
 
