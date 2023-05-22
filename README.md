@@ -16,5 +16,5 @@ Should any songs run into errors, this will be displayed once the program has fi
 Usage
 -------
 1. [Download the latest release](https://github.com/stripedew/CloneHeroVideoDownloader/releases/latest)
-2. Place VideoDownload.exe in your Clone Hero directory (default is C:\Users\-yourusername-\Documents\Clone Hero, one level above your Songs folder)
+2. Place VideoDownload.exe in your Clone Hero directory (default is C:\Users\_yourusername_\Documents\Clone Hero, one level above your Songs folder)
 4. Run VideoDownload.exe
