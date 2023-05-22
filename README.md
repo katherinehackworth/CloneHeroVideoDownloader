@@ -15,6 +15,6 @@ Should any songs run into errors, this will be displayed once the program has fi
 
 Usage
 -------
-1. [Download the latest release](https://github.com/jshackles/CloneHeroVideoDownloader/releases/latest)
+1. [Download the latest release](https://github.com/stripedew/CloneHeroVideoDownloader/releases/latest)
 2. Place VideoDownload.exe in your Clone Hero directory
 3. Run VideoDownload.exe
