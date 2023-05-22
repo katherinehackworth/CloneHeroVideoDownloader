@@ -1,11 +1,7 @@
 <img src="https://github.com/jshackles/CloneHeroVideoDownloader/raw/master/assets/icon.png" width="32" height="32"></img> Clone Hero Video Downloader
-
-Forked and updated as original stopped working. Replaced the googlesearch Python library with youtube-search-python. 
-It may still crash - rerun again and it should pick up where it left off.
-
 ===========
 An application that allows you to download the top YouTube music video for songs in your Clone Hero library.
-
+Forked and updated as original stopped working. 
 
 What this does
 -------
@@ -14,6 +10,8 @@ This program will recursively run through your Clone Hero songs folder to find s
 This program has been tested on very large song libraries with thousands of songs in many nested folders and has been found to be performant.  Please note that because most videos will download in 1080p resolution they can be up to 200MB per video.  The amount of time it takes to download videos for all of your songs will be highly dependent on your internet speed.  A progress bar is provided to indicate how many videos still need to be downloaded and will attempt to estimate the time remaining.
 
 This program has also been designed to run multiple times on the same songs directory.  So, if you add new songs to Clone Hero, simply re-run the program and it will only download the videos that are missing.
+
+Should any songs run into errors, this will be displayed once the program has finished running.
 
 Usage
 -------
