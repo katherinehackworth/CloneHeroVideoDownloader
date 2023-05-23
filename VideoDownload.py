@@ -6,6 +6,12 @@ import yt_dlp
 from tqdm import tqdm
 from youtubesearchpython import VideosSearch
 
+def clean_cookie():
+	if os.path.exists(".google-cookie"):
+		os.remove(".google-cookie")
+
+clean_cookie()		
+
 print('Checking for home folder')
 songsFolder = os.getcwd() + "\\songs"
 
@@ -71,6 +77,7 @@ if os.path.exists(songsFolder):
 									erroredSongs.append(filename)
 								with open('song.ini', 'w') as configfile:
 									config.write(configfile)
+						clean_cookie()
 			except Exception as e:
 				print(e)
 				print("Error downloading song: " + videoTitle + ". Skipping")
