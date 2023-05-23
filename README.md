@@ -18,3 +18,7 @@ Usage
 1. [Download the latest release](https://github.com/stripedew/CloneHeroVideoDownloader/releases/latest)
 2. Place VideoDownload.exe in your Clone Hero directory (default is C:\Users\XyourusernamehereX\Documents\Clone Hero, one level above your Songs folder)
 4. Run VideoDownload.exe
+
+NOTES
+-------
+For any songs causing issues, make sure the final folder containing all song files (song.ini etc.) is named 'Artist - song title'. This folder name is where the program gets the artist and song name to search for the video on YouTube.
