@@ -20,7 +20,7 @@ if os.path.exists(songsFolder):
 	homeFolder = os.path.abspath(os.getcwd() + "\\songs")
 	os.chdir(homeFolder)
 
-	videotitle=''
+	videoTitle=''
 	i=0
 	erroredSongs = []
 
@@ -43,9 +43,10 @@ if os.path.exists(songsFolder):
 						query = '{} (Official Music Video)'.format(currentSongName)
 						print('\nLooking on YouTube for: ' + query)
 
-						# finds the video URL from YouTube
-						youtube = VideosSearch(query, limit = 1).result()
+						# finds the top 2 video URLs from YouTube
+						youtube = VideosSearch(query, limit = 2).result()
 						url = youtube['result'][0]['link']
+						url2 = youtube['result'][1]['link']
 						videoTitle = youtube['result'][0]['title']
 						print("\nSearch success. Now downloading: " + videoTitle)
 
@@ -54,11 +55,15 @@ if os.path.exists(songsFolder):
 								'format': 'mp4',
 								'nooverwrites': 0,
 								'noplaylist': 1,
-								'quiet': True,
-								'ignoreerrors': True}
+								'quiet': True}
 						with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-							ydl.download([url])
-
+							try:
+								ydl.download([url])
+								print('Now downloaded')
+							except Exception as e:
+								print('Error while downloading: ' + str(e) + '. Trying second video')
+								# Try second video if first video errors
+								ydl.download([url2])
 						with open('song.ini') as songCheck:
 							# check if the ini file contains unexpected phase shift converter text
 							if '//Converted' in songCheck.read():
