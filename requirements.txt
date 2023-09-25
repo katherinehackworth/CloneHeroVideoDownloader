@@ -1,3 +1,4 @@
 google>=3.0.0
-tqdm>=4.64.0
-yt-dlp>=2022.5.18
+tqdm>=4.66.1
+yt-dlp>=2023.9.24
+youtube-search-python>=1.6.6
