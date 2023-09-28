@@ -23,6 +23,7 @@ if os.path.exists(songsFolder):
 	videoTitle=''
 	i=0
 	erroredSongs = []
+	erroredSongNames = []
 
 	for filename in glob.iglob(homeFolder + "/**/song.ini", recursive=True):
 		i+=1
@@ -39,7 +40,7 @@ if os.path.exists(songsFolder):
 					time.sleep (0.0001)
 					pbar.update(1)
 
-					if not os.path.exists("video.mp4"):
+					if not os.path.exists("video.mp4") and not currentSongName in erroredSongNames:
 						query = '{} (Official Music Video)'.format(currentSongName)
 						print('\nLooking on YouTube for: ' + query)
 
@@ -85,8 +86,9 @@ if os.path.exists(songsFolder):
 						clean_cookie()
 			except Exception as e:
 				print(e)
-				print("Error downloading song: " + videoTitle + ". Skipping")
+				print("Error downloading song: " + currentSongName + ". Skipping")
 				erroredSongs.append(videoTitle)
+				erroredSongNames.append(currentSongName)
 				continue
 			else:
 				break
