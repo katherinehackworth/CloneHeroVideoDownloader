@@ -6,10 +6,20 @@ What this does
 -------
 Clone Hero recognises 'video.mp4' file in every song folder as the video to play in the background of the song chart. 
 This program recursively runs through your Clone Hero songs folder to find songs that are missing this video.mp4 file. 
-If the file is missing, it then searches YouTube and grabs the first result for that song, using the folder name as the search string. If the download of the first search result fails, it attempts to download the second top result. Once downloaded, the file is renamed to 'video.mp4' and placed in the song folder. After this, Clone Hero should automatically recognise the video file and play it during the song.
+
+You are given three options for quality:
+- 720p (average 5-50MB per video)
+- 1080p (100MB+ per video)
+- Replace 1080p (deletes every video file you already have and replaces it with 1080p)
+  
+This will vary greatly depending on specific videos, but generally expect 1080p videos to be at least 2-3x as big.
+Options lower than 720p are not included as the quality is so degraded at that stage that it is not really worth even having.
+
+If the file is missing, it then searches YouTube and grabs the first result for that song, using the folder name as the search string. If the download of the first search result fails, it attempts to download the second top result. On
+Once downloaded, the file is renamed to 'video.mp4' and placed in the song folder. After this, Clone Hero should automatically recognise the video file and play it during the song.
+As YouTube by default does not provide h264 encoded videos above 720p, ffmpeg is used to remux 1080p videos into a format Clone Hero can play.
 
 This program has been tested on very large song libraries with thousands of songs in many nested folders and has been found to be performant.
-Please note that because most videos will download in 1080p resolution they can be up to 200MB per video, although most videos tend to be much smaller than that.  
 The amount of time it takes to download videos for all of your songs will be highly dependent on your internet speed.  
 A progress bar is provided to indicate how many videos still need to be downloaded and will attempt to estimate the time remaining.
 
