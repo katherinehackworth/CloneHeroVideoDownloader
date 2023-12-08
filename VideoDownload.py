@@ -84,6 +84,12 @@ if os.path.exists(songsFolder):
 					try:
 						if os.path.exists('video.mp4'):
 							os.remove('video.mp4')
+							
+						# Some song names have strings that will cause YouTube to search for a Clone Hero/Rock Band playthrough vidceo. This strips that out
+						titleIssues = ['(2x Bass Pedal Expert+)', '(2x Bass Pedal)', 'RB3', '(RB3 version)', '(Rh)']
+						for issue in titleIssues:
+							currentSongName = currentSongName.replace(issue, '')
+
 						query = '{} (Official Music Video)'.format(currentSongName)
 						print('\nLooking on YouTube for: ' + query)
 
