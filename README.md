@@ -35,5 +35,10 @@ Usage
 
 Notes/FAQ
 -------
+
+!! WinError2 - File Not Found !!
+If you are getting the above issue when using the 1080p option, grab the latest ffmpeg.exe (or equivalent for your platform) executable from this repo and place it in the same folder as your VideoDownload.exe
+It will enable the video conversion to work.
+
 For any songs causing issues, make sure the final folder containing all song files (song.ini etc.) is named 'Artist - song title'. This folder name is where the program gets the artist and song name to search for the video on YouTube.
 If you want to replace a video you already have downloaded previously, simply delete or rename the 'video.mp4' file and run the tool again.
