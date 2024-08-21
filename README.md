@@ -31,8 +31,8 @@ Usage
 -------
 Run as Python script:
 1. Clone this repository into your Clone Hero directory, one level above your Songs folder
-2. Install required dependencies from requirements.txt
-3. Run VideoDownload.py
+2. Install required dependencies from requirements.txt via cmd/Terminal (```python install -r requirements.txt```)
+3. Run VideoDownload.py via cmd/Terminal (```python VideoDownload.py```)
    
 Run as standalone .exe:
 1. [Download the latest release](https://github.com/stripedew/CloneHeroVideoDownloader/releases/latest)
