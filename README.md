@@ -29,6 +29,12 @@ Should any songs run into errors, this will be displayed once the program has fi
 
 Usage
 -------
+Run as Python script:
+1. Clone this repository into your Clone Hero directory, one level above your Songs folder
+2. Install required dependencies from requirements.txt
+3. Run VideoDownload.py
+   
+Run as standalone .exe:
 1. [Download the latest release](https://github.com/stripedew/CloneHeroVideoDownloader/releases/latest)
 2. Place VideoDownload.exe in your Clone Hero directory (default is C:\Users\XyourusernamehereX\Documents\Clone Hero, one level above your Songs folder)
 3. Run VideoDownload.exe
