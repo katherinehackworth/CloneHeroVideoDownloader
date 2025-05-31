@@ -1,4 +1,3 @@
-from codecs import ignore_errors
 import configparser
 import glob
 import os
@@ -15,7 +14,7 @@ def clean_cookie():
 def download_video(ydl, url):
 	ydl.download([url])
 	# Remux video into a format Clone Hero can play
-	if (videoQuality != 'mp4'):
+	if videoQuality != 'mp4':
 		print('Formatting downloaded video for Clone Hero')
 		try:
 			stream = ffmpeg.input('video.mp4')
@@ -28,10 +27,15 @@ def download_video(ydl, url):
 		else:
 			print('Video ready')
 
+def delete_all():
+	for video in glob.iglob(songsFolder + "/**/video.*", recursive=True):
+		os.remove(video)
+	exit()
+
+
 clean_cookie()		
 
-print('Checking for home folder...')
-songsFolder = os.getcwd() + "\\songs"
+songsFolder = 'r\"' + input('Enter the absolute path of the songs directory:') + '\"'
 time.sleep (0.5)
 if os.path.exists(songsFolder):
 	print('Songs folder found\n')
@@ -40,40 +44,40 @@ if os.path.exists(songsFolder):
 	videoQuality = '720p'
 
 	qualityInput = input('Type the number to pick from the following options:\n'
-					  + '1. Default quality (720p)\n'
-					  + '2. Best quality (1080p, where available; significantly bigger files):\n'
+					  + '1. Download backgrounds in default quality (720p)\n'
+					  + '2. Download backgrounds in best quality (1080p, where available; significantly bigger files):\n'
 					  + '3. [EXPERIMENTAL] Replace existing videos with 1080p (Caution: Use at your own risk. May malfunction and delete videos)\n\n'
-					  + 'Pick between 1-3: ')
+					  + '4. [EXPERIMENTAL Delete all downloaded video backgrounds. THIS CANNOT BE UNDONE!!!'
+					  + 'Pick between 1-4: ')
 	
-	if (qualityInput == '1'):
-		print('Set to 720p')
+	if qualityInput == '1':
+		print('Quality set to 720p')
 		videoQuality = 'mp4'
-	elif (qualityInput == '2'):
-		print('Set to 1080p. Poor hard drive!')
+	elif qualityInput == '2':
+		print('Quality set to 1080p. Poor hard drive!')
 		videoQuality = 'bestvideo[vcodec^=avc]/best[ext=mp4]/best'
-	elif (qualityInput == '3'):
+	elif qualityInput == '3':
 		print('Replacing all videos with 1080p. You have time for a nap!')
 		videoQuality = 'bestvideo[vcodec^=avc]/best[ext=mp4]/best'
 		replace = 'true'
+	elif qualityInput == '4':
+		print('Deleting all video backgrounds')
+		delete_all()
 	else:
-		print('You must choose between 1-3. Try again')
+		print('You must choose a valid option. Try again')
 		exit()
 
-	homeFolder = os.path.abspath(os.getcwd() + "\\songs")
-	os.chdir(homeFolder)
 	videoTitle = ''
-	i = 0
+	totalcount = 0
 	erroredSongs = []
 	erroredSongNames = []
 
-	for filename in glob.iglob(homeFolder + "/**/song.ini", recursive=True):
-		i+=1
-
-	totalcount = i
+	for filename in glob.iglob(songsFolder + "/**/song.ini", recursive=True):
+		totalcount+=1
 	
 	while True:
-		with tqdm(total=i,unit="videos") as pbar:
-			for filename in glob.iglob(homeFolder + "/**/song.ini", recursive=True):
+		with tqdm(total=totalcount,unit="videos") as pbar:
+			for filename in glob.iglob(songsFolder + "/**/song.ini", recursive=True):
 				currentSongFileFolder = os.path.dirname(filename)
 				currentSongName = os.path.basename(currentSongFileFolder)
 				os.chdir(currentSongFileFolder)
@@ -149,4 +153,4 @@ if os.path.exists(songsFolder):
 			print(i, end='\n')
 	input("All downloads complete. Checked a total of " + str(totalcount)+ " songs. Press Enter button to exit.")
 else:
-	input("Did not detect a 'Songs' folder. Check you have placed the .exe file in the directory one level above it. Press any button to exit")
+	input("Did not detect a valid songs folder. Press any button to exit")
