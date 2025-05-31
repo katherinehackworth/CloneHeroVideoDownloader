@@ -39,7 +39,7 @@ def delete_all():
 
 clean_cookie()
 
-songsFolder = 'r\"' + input('Enter the absolute path of the songs directory:') + '\"'
+songsFolder = input('Enter the absolute path of the songs directory:')
 time.sleep(0.5)
 if os.path.exists(songsFolder):
     print('Songs folder found\n')
@@ -50,8 +50,8 @@ if os.path.exists(songsFolder):
     qualityInput = input('Type the number to pick from the following options:\n'
                          + '1. Download backgrounds in default quality (720p)\n'
                          + '2. Download backgrounds in best quality (1080p, where available; significantly bigger files):\n'
-                         + '3. [EXPERIMENTAL] Replace existing videos with 1080p (Caution: Use at your own risk. May malfunction and delete videos)\n\n'
-                         + '4. [EXPERIMENTAL Delete all downloaded video backgrounds. THIS CANNOT BE UNDONE!!!'
+                         + '3. [EXPERIMENTAL] Replace existing videos with 1080p (Caution: Use at your own risk. May malfunction and delete videos)\n'
+                         + '4. [EXPERIMENTAL Delete all downloaded video backgrounds. THIS CANNOT BE UNDONE!!!\n\n'
                          + 'Pick between 1-4: ')
 
     if qualityInput == '1':
